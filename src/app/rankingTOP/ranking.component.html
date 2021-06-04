@@ -1,0 +1,65 @@
+<app-menu></app-menu>
+<div class="leaderborads container mt-4 px-0" style="overflow-x:hidden;">
+  <ul class="nav nav-tabs nav-justified">
+    <li class="nav-item" (click)="onLeaderboard('br1')">
+      <a class="nav-link" style="cursor: pointer;">BR</a>
+    </li>
+    <li class="nav-item" (click)="onLeaderboard('eun1')">
+      <a class="nav-link" style="cursor: pointer;">EUNE</a>
+    </li>
+    <li class="nav-item" (click)="onLeaderboard('euw1')">
+      <a class="nav-link" style="cursor: pointer;">EUW</a>
+    </li>
+    <li class="nav-item" (click)="onLeaderboard('jp1')">
+      <a class="nav-link" style="cursor: pointer;">JP</a>
+    </li>
+    <li class="nav-item" (click)="onLeaderboard('kr')">
+      <a class="nav-link" style="cursor: pointer;">KR</a>
+    </li>
+    <li class="nav-item" (click)="onLeaderboard('la1')">
+      <a class="nav-link" style="cursor: pointer;">LAN</a>
+    </li>
+    <li class="nav-item" (click)="onLeaderboard('la2')">
+      <a class="nav-link" style="cursor: pointer;">LAS</a>
+    </li>
+    <li class="nav-item" (click)="onLeaderboard('na1')">
+      <a class="nav-link" style="cursor: pointer;">NA</a>
+    </li>
+    <li class="nav-item" (click)="onLeaderboard('oc1')">
+      <a class="nav-link" style="cursor: pointer;">OCE</a>
+    </li>
+    <li class="nav-item" (click)="onLeaderboard('tr1')">
+      <a class="nav-link" style="cursor: pointer;">TR</a>
+    </li>
+    <li class="nav-item" (click)="onLeaderboard('ru')">
+      <a class="nav-link" style="cursor: pointer;">RU</a>
+    </li>
+  </ul>
+</div>
+
+<div class="">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">
+          Summoner Name
+        </th>
+        <th scope="col">
+          League Points
+        </th>
+        <th scope="col">
+          Rank
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of leagueItemDTO" class="col-md-6 col-xl-3">
+        <td>{{player.summonerName}}</td>
+        <td>{{player.leaguePoints}}</td>
+        <td>{{player.rank}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
