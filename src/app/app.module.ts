@@ -14,6 +14,7 @@ import { RegistroComponent } from './auth/registro.component';
 import { MenuComponent } from './menu/menu.component';
 import { IndexComponent } from './index/index.component';
 import { RankingComponent } from './rankingTOP/ranking.component';
+import { SummonerNameInfoComponent } from './summonerNameInfo/summoner-name-info.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { RankingComponent } from './rankingTOP/ranking.component';
     RegistroComponent,
     MenuComponent,
     IndexComponent,
-    RankingComponent
+    RankingComponent,
+    SummonerNameInfoComponent
   ],
   imports: [
     BrowserModule,

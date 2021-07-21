@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {LeagueListDto} from '../models/ranking/league-list-dto';
 import {LeagueItemDto} from '../models/ranking/league-item-dto';
 
 @Injectable({
