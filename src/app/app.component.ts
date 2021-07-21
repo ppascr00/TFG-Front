@@ -10,6 +10,7 @@ import {PlayerService} from './player.service';
 })
 export class AppComponent implements OnInit{
   public players: Player[];
+  title = 'teamfighttacticssearchfront';
 
   constructor(private playerService: PlayerService) {}
 
