@@ -4,13 +4,14 @@ import {NewUser} from '../models/new-user';
 import {Observable} from 'rxjs';
 import {LoginUser} from '../models/login-user';
 import {JwtDto} from '../models/jwt-dto';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  authURL = 'http://localhost:8080/auth/';
+  authURL = environment.apiBaseUrl + '/auth/';
 
   constructor(private httpClient: HttpClient) { }
 

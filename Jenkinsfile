@@ -22,5 +22,9 @@ pipeline {
     stage('Build') {
       steps { sh 'npm run-script build' }
     }
+
+    stage('Deploy') {
+          steps { sh 'ng serve' }
+        }
   }
 }
