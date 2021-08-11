@@ -4,7 +4,6 @@ pipeline {
   tools {nodejs "NodeJSinstaller"}
 
   stages {
-    try{
 
       stage('Install') {
         steps { sh 'npm install' }
@@ -30,15 +29,10 @@ pipeline {
       }*/
 
     //}
-    }catch (e) {
-      // fail the build if an exception is thrown
-      currentBuild.result = "FAILED"
-      throw e
-    } finally {
-      // Post build steps here
-      /* Success or failure, always run post build steps */
-      // send email
-      // publish test results etc etc
+  }
+
+  post{
+    success{
       sh 'ng serve'
     }
   }
