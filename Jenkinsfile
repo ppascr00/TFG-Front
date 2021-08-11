@@ -5,7 +5,7 @@ pipeline {
 
   //stages {
   try{
-
+    stages{
       stage('Install') {
         steps { sh 'npm install' }
       }
@@ -28,6 +28,7 @@ pipeline {
       /*stage('Deploy'){
         steps { sh 'pm2 restart all' }
       }*/
+    }
 
     //}
   }catch (e) {
