@@ -3,29 +3,42 @@ pipeline {
 
   tools {nodejs "NodeJSinstaller"}
 
-  stages {
-    stage('Install') {
-      steps { sh 'npm install' }
-    }
+  //stages {
+  try{
 
-    /*stage('Test') {
-      parallel {
-        stage('Static code analysis') {
-            steps { sh 'npm run-script lint' }
-        }
-        stage('Unit tests') {
-            steps { sh 'npm run-script test' }
-        }
+      stage('Install') {
+        steps { sh 'npm install' }
       }
-    }*/
 
-    stage('Build') {
-      steps { sh 'npm run-script build' }
-    }
+      /*stage('Test') {
+        parallel {
+          stage('Static code analysis') {
+              steps { sh 'npm run-script lint' }
+          }
+          stage('Unit tests') {
+              steps { sh 'npm run-script test' }
+          }
+        }
+      }*/
 
-    stage('Deploy'){
-      steps { sh 'pm2 restart all' }
-    }
+      stage('Build') {
+        steps { sh 'npm run-script build' }
+      }
 
+      /*stage('Deploy'){
+        steps { sh 'pm2 restart all' }
+      }*/
+
+    //}
+  }catch (e) {
+    // fail the build if an exception is thrown
+    currentBuild.result = "FAILED"
+    throw e
+  } finally {
+    // Post build steps here
+    /* Success or failure, always run post build steps */
+    // send email
+    // publish test results etc etc
+    sh 'ng serve'
   }
 }
