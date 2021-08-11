@@ -23,8 +23,9 @@ pipeline {
       steps { sh 'npm run-script build' }
     }
 
-    stage('Deploy') {
-          steps { sh 'ng serve' }
-        }
+    stage('Deploy'){
+      steps { sh 'pm2 restart all' }
+    }
+
   }
 }
