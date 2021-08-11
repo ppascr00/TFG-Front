@@ -3,9 +3,9 @@ pipeline {
 
   tools {nodejs "NodeJSinstaller"}
 
-  //stages {
-  try{
-    stages{
+  stages {
+    try{
+
       stage('Install') {
         steps { sh 'npm install' }
       }
@@ -28,18 +28,18 @@ pipeline {
       /*stage('Deploy'){
         steps { sh 'pm2 restart all' }
       }*/
-    }
 
     //}
-  }catch (e) {
-    // fail the build if an exception is thrown
-    currentBuild.result = "FAILED"
-    throw e
-  } finally {
-    // Post build steps here
-    /* Success or failure, always run post build steps */
-    // send email
-    // publish test results etc etc
-    sh 'ng serve'
+    }catch (e) {
+      // fail the build if an exception is thrown
+      currentBuild.result = "FAILED"
+      throw e
+    } finally {
+      // Post build steps here
+      /* Success or failure, always run post build steps */
+      // send email
+      // publish test results etc etc
+      sh 'ng serve'
+    }
   }
 }
