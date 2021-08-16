@@ -36,28 +36,28 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void{
-    this.loginUser = new LoginUser(this.userName, this.password);
-    this.authService.login(this.loginUser).subscribe(
-      data => {
-        this.isLogged = true;
+      this.loginUser = new LoginUser(this.userName, this.password);
+      this.authService.login(this.loginUser).subscribe(
+        data => {
+          this.isLogged = true;
 
-        this.tokenService.setToken(data.token);
-        this.tokenService.setUserName(data.userName);
-        this.tokenService.setAuthorities(data.authorities);
-        this.roles = data.authorities;
-        this.toastr.success('Bienvenido ' + data.userName, 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
-        });
-        this.router.navigate(['/']);
-      },
-      err => {
-        this.isLogged = false;
-        this.errMsg = err.error.message;
-        this.toastr.error(this.errMsg, 'Fail', {
-          timeOut: 3000, positionClass: 'toast-top-center'
-        });
-      }
-    );
+          this.tokenService.setToken(data.token);
+          this.tokenService.setUserName(data.userName);
+          this.tokenService.setAuthorities(data.authorities);
+          this.roles = data.authorities;
+          this.toastr.success('Bienvenido ' + data.userName, 'OK', {
+            timeOut: 3000, positionClass: 'toast-top-center'
+          });
+          this.router.navigate(['/']);
+        },
+        err => {
+          this.isLogged = false;
+          this.errMsg = err.error.message;
+          this.toastr.error(this.errMsg, 'Fail', {
+            timeOut: 3000, positionClass: 'toast-top-center'
+          });
+        }
+      );
   }
 
 }
