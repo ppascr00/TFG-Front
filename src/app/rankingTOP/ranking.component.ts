@@ -32,8 +32,4 @@ export class RankingComponent implements OnInit {
 
     this.router.navigate(['/ranking'], { queryParams: { platform }});
   }
-
-
-
-
 }
