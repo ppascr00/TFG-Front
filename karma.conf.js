@@ -7,12 +7,11 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
+      require('karma-coverage'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
-      require('karma-coverage-istanbul-reporter'),
-      require('@angular/cli/plugins/karma'),
-      require('karma-jasmine-diff-reporter'),
-      require('karma-structured-json-reporter')
+      require('karma-remap-istanbul'),
+      require('@angular-devkit/build-angular/plugins/karma'),
     ],
     client: {
       jasmine: {
@@ -34,7 +33,9 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
-    reporters: ['progress', 'kjhtml', 'sonarqubeUnit'],
+    reporters: config.angularCli && config.angularCli.codeCoverage
+      ? ['progress', 'karma-remap-istanbul', 'kjhtml']
+      : ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

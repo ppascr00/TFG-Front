@@ -7,11 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "test-karma": "ng test - code-coverage - watch=false"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-webpack": "^0.1303.7",
     "@angular/animations": "^13.3.10",
     "@angular/cdk": "^13.3.8",
     "@angular/common": "~13.3.10",
@@ -22,6 +22,8 @@
     "@angular/platform-browser": "~13.3.10",
     "@angular/platform-browser-dynamic": "~13.3.10",
     "@angular/router": "~13.3.10",
+    "karma-jasmine-diff-reporter": "^2.0.1",
+    "karma-remap-istanbul": "^0.6.0",
     "ngx-toastr": "^14.3.0",
     "rxjs": "~7.5.5",
     "tslib": "^2.4.0",
