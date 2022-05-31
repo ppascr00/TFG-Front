@@ -23,7 +23,7 @@ node {
     def nodejs = tool 'NodeJSActualizado'
     sh "pwd"
     sh "ls ${nodejs}/bin"
-    sh "${nodejs}/bin/npm install"
+    sh "${nodejs}/bin/npm"
 
     // ------------------------------------
     // -- ETAPA: Compilar
