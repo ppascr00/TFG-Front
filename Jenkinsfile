@@ -20,6 +20,8 @@ node {
 
    // -- Compilando
    echo 'Compilando aplicación'
+    def nodejs = tool 'NodeJSActualizado'
+    sh "NODEJS -> ${nodejs}"
    sh 'npm install'
 
     // ------------------------------------
