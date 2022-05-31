@@ -1,4 +1,48 @@
-pipeline {
+#!groovy
+
+node {
+   // ------------------------------------
+   // -- ETAPA: Instalar
+   // ------------------------------------
+   stage 'Instalar'
+
+   // -- Configura variables
+   /*echo 'Configurando variables'
+   def mvnHome = tool 'M3'
+   env.PATH = "${mvnHome}/bin:${env.PATH}"
+   echo "var mvnHome='${mvnHome}'"
+   echo "var env.PATH='${env.PATH}'"*/
+
+   // -- Descarga código desde SCM
+   echo 'Descargando código de SCM'
+   sh 'rm -rf *'
+   checkout scm
+
+   // -- Compilando
+   echo 'Compilando aplicación'
+   sh 'npm install'
+
+    // ------------------------------------
+    // -- ETAPA: Compilar
+    // ------------------------------------
+    stage 'Compilar'
+    sh 'ng build test'
+
+   // ------------------------------------
+   // -- ETAPA: SonarQube
+   // ------------------------------------
+   stage 'SonarQube Analysis'
+   echo 'Análisis SonarQube'
+
+   def scannerHome = tool 'SonarQube'
+   withSonarQubeEnv('SonarQube'){
+      sh "${scannerHome}/bin/sonar-scanner"
+   }
+
+}
+
+
+/*pipeline {
   agent any
 
   tools {nodejs "NodeJSActualizado"}
@@ -20,7 +64,7 @@ pipeline {
         }
       }*/
 
-      stage('Build') {
+      /*stage('Build') {
         steps { sh 'npm run-script build' }
       }
 
@@ -41,11 +85,11 @@ pipeline {
       }*/
 
     //}
-  }
+  /*}
 
   /*post{
     success{
       sh 'ng serve'
     }
   }*/
-}
+/*}*/
