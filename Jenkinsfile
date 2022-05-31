@@ -19,13 +19,13 @@ pipeline{
     stage ('test'){
       steps{
         sh '''
-          $(npm bin)/ng test --single-run
+          ng test --single-run
         '''
       }
     }
     stage ('build') {
       steps{
-        sh '$(npm bin)/ng build'
+        sh 'ng build'
       }
     }
   }
