@@ -1,5 +1,5 @@
 pipeline{
-  agent { label 'NodeJSActualizado' }
+  agent any
   stages{
     stage ('checkout'){
       steps{
