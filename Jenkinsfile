@@ -19,7 +19,7 @@ pipeline{
     stage ('test'){
       steps{
         sh '''
-          npm run ng test --single-run --browsers Chrome_no_sandbox
+          npm run ng test --code-coverage
         '''
       }
     }
