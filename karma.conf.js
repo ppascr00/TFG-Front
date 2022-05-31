@@ -13,6 +13,7 @@ module.exports = function (config) {
       require('karma-remap-istanbul'),
       require('@angular-devkit/build-angular/plugins/karma'),
     ],
+    singleRun: true,
     client: {
       jasmine: {
         // you can add configuration options for Jasmine here
