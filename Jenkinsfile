@@ -1,7 +1,8 @@
 pipeline{
-  agent {
-      docker { image 'node:latest' }
-    }
+  agent any
+  tools {
+      nodejs "NodeJSActualizado"
+  }
   stages{
     stage ('checkout'){
       steps{
