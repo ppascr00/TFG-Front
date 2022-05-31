@@ -9,7 +9,7 @@ pipeline {
         steps { sh 'npm install' }
       }
 
-      /*stage('Test') {
+      stage('Test') {
         parallel {
           stage('Static code analysis') {
               steps { sh 'npm run-script lint' }
@@ -18,10 +18,10 @@ pipeline {
               steps { sh 'npm run-script test' }
           }
         }
-      }*/
+      }
 
       stage('Build') {
-        steps { sh 'npm ng build test' }
+        steps { sh 'npm run-script build' }
       }
 
       stage('Sonarqube') {
