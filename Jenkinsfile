@@ -21,7 +21,8 @@ node {
    // -- Compilando
    echo 'Compilando aplicación'
     def nodejs = tool 'NodeJSActualizado'
-    sh "NODEJS -> ${nodejs}"
+    sh "pwd"
+    sh "ls ${nodejs}"
    sh 'npm install'
 
     // ------------------------------------
