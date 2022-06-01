@@ -32,11 +32,11 @@ pipeline{
     }*/
 
     stage('Sonarqube') {
-        def scannerHome = tool 'SonarQube';
+
         steps {
 
           withSonarQubeEnv('SonarQube') {
-
+              def scannerHome = tool 'SonarQube';
               sh "${scannerHome}/bin/sonar-scanner"
           }
           timeout(time: 10, unit: 'MINUTES') {
