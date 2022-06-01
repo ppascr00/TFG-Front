@@ -2,7 +2,6 @@ pipeline{
   agent any
   tools {
       nodejs "NodeJSActualizado"
-      SonarRunnerInstallation "SonarQube"
   }
   stages{
     stage ('checkout'){
@@ -32,18 +31,13 @@ pipeline{
       }
     }*/
 
-    stage('Sonarqube') {
-
-        steps {
-
-          withSonarQubeEnv('SonarQube') {
-              sh "${sonarqube}/bin/sonar-scanner"
-          }
-          timeout(time: 10, unit: 'MINUTES') {
-              waitForQualityGate abortPipeline: true
-          }
-
+    stage('SonarQube') {
+      steps {
+        script {
+          def scannerHome = tool 'sonarqube';
+          withSonarQubeEnv("sonarqube-container") {
+          sh """${tool("SonarQube")}/bin/sonar-scanner"""
         }
-    }
+      }
   }
 }
