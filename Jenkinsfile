@@ -2,6 +2,7 @@ pipeline{
   agent any
   tools {
       nodejs "NodeJSActualizado"
+      sonarqube "SonarQube"
   }
   stages{
     stage ('checkout'){
@@ -36,8 +37,7 @@ pipeline{
         steps {
 
           withSonarQubeEnv('SonarQube') {
-              def scannerHome = tool 'SonarQube';
-              sh "${scannerHome}/bin/sonar-scanner"
+              sh "${sonarqube}/bin/sonar-scanner"
           }
           timeout(time: 10, unit: 'MINUTES') {
               waitForQualityGate abortPipeline: true
