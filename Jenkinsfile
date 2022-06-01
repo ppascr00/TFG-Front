@@ -1,8 +1,8 @@
 pipeline{
   agent any
   tools {
-      nodejs "NodeJSActualizado",
-      sonarqube "SonarQube"
+      nodejs "NodeJSActualizado"
+      SonarRunnerInstallation "SonarQube"
   }
   stages{
     stage ('checkout'){
