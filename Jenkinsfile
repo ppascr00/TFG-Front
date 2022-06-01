@@ -23,12 +23,26 @@ pipeline{
       }
     }
 
-    stage ('test'){
+    /*stage ('test'){
       steps{
         sh '''
           npm run ng test
         '''
       }
+    }*/
+
+    stage('Sonarqube') {
+        steps {
+            container('SonarQubeScanner') {
+                withSonarQubeEnv('SonarQube') {
+                    //tool "SonarQube"
+                    sh "sonar-scanner"
+                }
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
     }
   }
 }
