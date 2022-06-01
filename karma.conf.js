@@ -13,7 +13,7 @@ module.exports = function (config) {
       require('karma-remap-istanbul'),
       require('@angular-devkit/build-angular/plugins/karma'),
     ],
-    singleRun: true,
+    //singleRun: true,
     client: {
       jasmine: {
         // you can add configuration options for Jasmine here
@@ -42,7 +42,7 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false,
+    singleRun: true,
     restartOnFileChange: true
   });
 };
