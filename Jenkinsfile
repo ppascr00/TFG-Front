@@ -1,7 +1,7 @@
 pipeline{
   agent any
   tools {
-      nodejs "NodeJSActualizado"
+      nodejs "NodeJSActualizado",
       sonarqube "SonarQube"
   }
   stages{
