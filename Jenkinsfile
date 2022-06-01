@@ -16,16 +16,18 @@ pipeline{
         '''
       }
     }
+
+    stage ('build') {
+      steps{
+        sh 'npm run ng build'
+      }
+    }
+
     stage ('test'){
       steps{
         sh '''
           npm run ng test
         '''
-      }
-    }
-    stage ('build') {
-      steps{
-        sh 'npm run ng build'
       }
     }
   }
