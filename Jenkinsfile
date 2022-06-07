@@ -51,7 +51,7 @@ pipeline{
           ls dist
         '''
         sh '''
-          cp -r dist/ /var/lib/tomcat9/webapps/
+          sudo cp -r dist/ /var/lib/tomcat9/webapps/
         '''
       }
     }
