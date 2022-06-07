@@ -45,7 +45,7 @@ pipeline{
     stage('Deploy'){
       steps{
         sh '''
-          ls
+          cp dist /var/lib/tomcat9/webapps/
         '''
       }
     }
