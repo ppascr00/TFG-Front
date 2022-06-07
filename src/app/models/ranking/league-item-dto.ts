@@ -12,6 +12,4 @@ export class LeagueItemDto {
   leaguePoints: number;
   losses: number;
   summonerId: string;
-
-
 }

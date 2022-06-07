@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {LeagueListDto} from '../models/ranking/league-list-dto';
 import {RankingService} from '../service/ranking.service';
 import {LeagueItemDto} from '../models/ranking/league-item-dto';
 import {Router} from '@angular/router';

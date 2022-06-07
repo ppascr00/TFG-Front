@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SummonerNameInfoService} from '../service/summoner-name-info.service';
 import {Router} from '@angular/router';
-import {MatchDto} from '../models/summonerNameInfo/match-dto';
 import {UsernameInfoMatch} from '../models/summonerNameInfo/UsernameInfoMatch';
 
 

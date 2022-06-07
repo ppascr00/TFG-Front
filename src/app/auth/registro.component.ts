@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {TokenService} from '../service/token.service';
 import {AuthService} from '../service/auth.service';
 import {Router} from '@angular/router';
-import {LoginUser} from '../models/login-user';
 import {NewUser} from '../models/new-user';
 import {ToastrService} from 'ngx-toastr';
 
@@ -48,8 +47,6 @@ export class RegistroComponent implements OnInit {
           this.toastr.error(this.errMsg, 'Fail', {
             timeOut: 3000, positionClass: 'toast-top-center'
           });
-
-          // console.log(err.error.message);
         }
     );
   }
