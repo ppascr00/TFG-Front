@@ -51,7 +51,7 @@ pipeline{
           ls dist
         '''
         sh '''
-          echo 'admin' | sudo -S cp -rp dist/teamfighttacticssearchfront/ /var/lib/tomcat9/webapps/
+          echo "jenkins" | sudo -S cp -rp dist/teamfighttacticssearchfront/ /var/lib/tomcat9/webapps/
         '''
       }
     }
