@@ -45,15 +45,6 @@ pipeline{
     stage('Deploy'){
       steps{
         sh '''
-          pwd
-        '''
-        sh '''
-          ls dist
-        '''
-        sh '''
-          sudo cp -rp dist/teamfighttacticssearchfront/ /var/lib/tomcat9/webapps/
-        '''
-        sh '''
           cp -rp dist/teamfighttacticssearchfront/ /var/lib/tomcat9/webapps/
         '''
       }

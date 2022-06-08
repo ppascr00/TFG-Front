@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   //apiBaseUrl: 'http://localhost:8079'
-  apiBaseUrl: 'http://localhost:8081/teamfighttacticssearch'
+  //apiBaseUrl: 'http://localhost:8081/teamfighttacticssearch'
+  apiBaseUrl: 'http://82.223.70.198:8081/teamfighttacticssearch'
 };
 
 /*
