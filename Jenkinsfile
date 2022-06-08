@@ -51,7 +51,7 @@ pipeline{
           ls dist
         '''
         sh '''
-          echo '#47vu7%fVX' | sudo -S cp -rp dist/teamfighttacticssearchfront/ /var/lib/tomcat9/webapps/
+          echo 'admin' | sudo -S cp -rp dist/teamfighttacticssearchfront/ /var/lib/tomcat9/webapps/
         '''
       }
     }
