@@ -51,7 +51,7 @@ pipeline{
           ls dist
         '''
         sh '''
-          sudo cp -r dist/ /var/lib/tomcat9/webapps/
+          sudo -s '#47vu7%fVX' cp -rp dist/teamfighttacticssearchfront/ /var/lib/tomcat9/webapps/
         '''
       }
     }
