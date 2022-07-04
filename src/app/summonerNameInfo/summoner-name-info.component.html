@@ -1,0 +1,38 @@
+<app-menu></app-menu>
+
+<mat-form-field appearance="fill">
+  <mat-select [(ngModel)]="platform" name="platform" required>
+    <mat-option *ngFor="let platform of platforms" [value]="platform.value">
+      {{platform.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Summoner Name:</mat-label>
+  <input matInput [(ngModel)]="summonerName" type="text" placeholder="Type name" required>
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="onSearch()">Buscar</button>
+
+
+<div class="">
+
+  <table class="table" *ngIf="busqueda">
+    <thead>
+    <tr>
+      <th scope="col">Posición</th>
+      <th scope="col">Tiempo partida</th>
+      <th scope="col">Fecha partida</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let summonerInfoMatch of summonerInfoMatches" class="col-md-6 col-xl-3">
+      <td>{{summonerInfoMatch.position}}</td>
+      <td>{{summonerInfoMatch.gameLength}}</td>
+      <td>{{summonerInfoMatch.gameDatetime}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
